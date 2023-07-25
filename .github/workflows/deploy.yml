@@ -109,7 +109,7 @@ jobs:
       - name: Run linkinator
         uses: JustinBeckwith/linkinator-action@v1
         with:
-          path: website/build
+          paths: website/build
           recursive: true
           verbosity: error
           skip: "^(?!http://localhost)"
