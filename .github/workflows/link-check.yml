@@ -45,14 +45,13 @@ jobs:
           use-verbose-mode: 'yes'
           # config-file: '.github/workflows/markdown.links.config.json'
           folder-path: 'doc/'
-        uses: actions/checkout@master
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        # uses: gaurav-nelson/github-action-markdown-link-check@v1
         # checks all markdown files from root but ignores subfolders
-        with:
-          use-quiet-mode: 'yes'
-          use-verbose-mode: 'yes'
-          config-file: '.github/workflows/markdown.links.config.json'
-          max-depth: 0
+        # with:
+          # use-quiet-mode: 'yes'
+          # use-verbose-mode: 'yes'
+          # config-file: '.github/workflows/markdown.links.config.json'
+          # max-depth: 0
       
       - name: Check Links
         run: |
