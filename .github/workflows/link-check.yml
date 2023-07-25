@@ -6,9 +6,9 @@ name: Check broken links
 # events but only for the master branch
 on:
   push:
-    branches: [master]
+    branches: [test/linkinator]
   pull_request:
-    branches: [master]
+    branches: [test/linkinator]
   schedule:
     # Run everyday at 9:00 AM (See https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)
     - cron: "0 5 * * *"
