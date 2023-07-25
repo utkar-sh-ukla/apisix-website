@@ -6,7 +6,7 @@ name: Test and Deploy Website
 # events but only for the master branch
 on:
   push:
-    branches: [master]
+    branches: [test/linkinator]
   schedule:
     # Run everyday at 9:00 AM (See https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)
     - cron: '0 5 * * *'
@@ -105,6 +105,14 @@ jobs:
       - name: Update sitemap.xml
         run: |
           yarn update-sitemap && git status
+
+      - name: Run linkinator
+        uses: JustinBeckwith/linkinator-action@v1
+        with:
+          path: website/build
+          recursive: true
+          verbosity: error
+          skip: "^(?!http://localhost)"
 
       - name: Deploy to Netlify
         uses: ./.github/actions/actions-netlify
