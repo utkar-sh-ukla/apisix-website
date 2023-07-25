@@ -37,7 +37,6 @@ jobs:
           yarn sync-docs && git status
 
       - name: Markdown Links Check
-        uses: actions/checkout@master
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         # checks all markdown files from /docs including all subfolders
         with:
