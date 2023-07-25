@@ -37,16 +37,16 @@ jobs:
           yarn sync-docs && git status
 
       - name: Markdown Links Check
-      - uses: actions/checkout@master
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        uses: actions/checkout@master
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
         # checks all markdown files from /docs including all subfolders
         with:
           use-quiet-mode: 'yes'
           use-verbose-mode: 'yes'
           # config-file: '.github/workflows/markdown.links.config.json'
           folder-path: 'doc/'
-      - uses: actions/checkout@master
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        uses: actions/checkout@master
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
         # checks all markdown files from root but ignores subfolders
         with:
           use-quiet-mode: 'yes'
@@ -66,9 +66,9 @@ jobs:
           path: scripts/brokenLinks.json
           retention-days: 5
       
-      - name: Linkinator
-        uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: "**/*.md"
-          markdown: true
-          retry: true
+      # - name: Linkinator
+      #   uses: JustinBeckwith/linkinator-action@v1
+      #   with:
+      #     paths: "**/*.md"
+      #     markdown: true
+      #     retry: true
