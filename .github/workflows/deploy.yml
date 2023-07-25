@@ -106,14 +106,6 @@ jobs:
         run: |
           yarn update-sitemap && git status
 
-      - name: Run linkinator
-        uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: ./website/build
-          recurse: true
-          verbosity: error
-          skip: "^(?!http://localhost)"
-
       - name: Deploy to Netlify
         uses: ./.github/actions/actions-netlify
         if: ${{ false }}
@@ -137,3 +129,11 @@ jobs:
           publish_dir: website/build
           publish_branch: asf-site
           force_orphan: true
+
+      - name: Run linkinator
+        uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: website/build
+          recurse: true
+          verbosity: error
+          skip: "^(?!http://localhost)"
