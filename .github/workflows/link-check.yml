@@ -47,3 +47,10 @@ jobs:
           name: broken-links.json
           path: scripts/brokenLinks.json
           retention-days: 5
+      
+      - name: Linkinator
+        uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.md"
+          markdown: true
+          retry: true
