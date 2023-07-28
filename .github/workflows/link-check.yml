@@ -36,37 +36,23 @@ jobs:
         run: |
           yarn sync-docs && git status
 
-      - name: Markdown Links Check
+      - name: Run link check
         uses: gaurav-nelson/github-action-markdown-link-check@v1
-        # checks all markdown files from /docs including all subfolders
         with:
           use-quiet-mode: 'yes'
           use-verbose-mode: 'yes'
-          # config-file: '.github/workflows/markdown.links.config.json'
+          config-file: '.github/mlc_config.json'
           folder-path: 'doc/docs/, doc/i18n'
-        # uses: gaurav-nelson/github-action-markdown-link-check@v1
-        # checks all markdown files from root but ignores subfolders
-        # with:
-          # use-quiet-mode: 'yes'
-          # use-verbose-mode: 'yes'
-          # config-file: '.github/workflows/markdown.links.config.json'
-          # max-depth: 0
       
-      - name: Check Links
-        run: |
-          yarn workspace scripts link-checker && git status
+      # - name: Check Links
+      #   run: |
+      #     yarn workspace scripts link-checker && git status
 
-      - name: Archive Broken Links List
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: broken-links.json
-          path: scripts/brokenLinks.json
-          retention-days: 5
-      
-      # - name: Linkinator
-      #   uses: JustinBeckwith/linkinator-action@v1
+      # - name: Archive Broken Links List
+      #   uses: actions/upload-artifact@v3
+      #   if: always()
       #   with:
-      #     paths: "**/*.md"
-      #     markdown: true
-      #     retry: true
+      #     name: broken-links.json
+      #     path: scripts/brokenLinks.json
+      #     retention-days: 5
+
