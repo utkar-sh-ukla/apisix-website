@@ -39,10 +39,9 @@ jobs:
       - name: Run link check
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          use-quiet-mode: 'yes'
           use-verbose-mode: 'yes'
           config-file: '.github/mlc_config.json'
-          folder-path: 'doc/docs/, doc/i18n'
+          folder-path: 'doc/docs/, doc/i18n/'
       
       # - name: Check Links
       #   run: |
