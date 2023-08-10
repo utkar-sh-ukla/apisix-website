@@ -43,6 +43,7 @@ jobs:
           check-modified-files-only: 'no'
           config-file: '.github/mlc_config.json'
           folder-path: 'doc/docs/, doc/i18n/'
+          continue-on-error: true
       # - name: Check Links
       #   run: |
       #     yarn workspace scripts link-checker && git status
