@@ -28,16 +28,8 @@ jobs:
         id: link-check
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          use-verbose-mode: 'no'
-          check-modified-files-only: 'no'
+          use-verbose-mode: 'yes'
+          check-modified-files-only: 'yes'
           config-file: '.github/mlc_config.json'
           folder-path: 'doc/docs/, doc/i18n/'
         continue-on-error: true
-
-      - name: Display Link Check Results
-        run: |
-          cat ${{ steps.link-check.outputs.log-file }}
-          
-      - name: Always Succeed
-        run: |
-          echo "Workflow completed successfully."
